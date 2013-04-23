@@ -1,7 +1,7 @@
 <?php
 include $CFG->dirroot.'/lib/mdl/moodle_database.php';
 
-Global $DB;
+global $DB, $USER;
 
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
@@ -60,8 +60,7 @@ echo $OUTPUT->doctype() ?>
         </div>
 	<h1 class="headermain"><?php //echo $PAGE->heading ?></h1>
     <?php
-        global $USER;
-        $USER->id;
+	// TODO: Use Moodle Data API to handle this query (we can't use php mysql functions to interact with DB). HC 2013-04-23.
         $gcon = mysql_connect($CFG->dbhost,$CFG->dbuser,$CFG->dbpass);
         mysql_select_db($CFG->dbname);        
         $sql_logo = "SELECT gm.*, gl.* FROM ".$CFG->prefix."groups_members gm, ".$CFG->prefix."groups_logo gl  WHERE gm.groupid = gl.group_id 
