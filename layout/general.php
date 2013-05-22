@@ -28,7 +28,7 @@ if ($hascustommenu) {
     $bodyclasses[] = 'has_custom_menu';
 }
 
-$sql_grp1 = $DB->get_record_sql('SELECT data FROM {user_info_data} WHERE fieldid = ? AND userid = ?', array(3, $USER->id));
+/*$sql_grp1 = $DB->get_record_sql('SELECT data FROM {user_info_data} WHERE fieldid = ? AND userid = ?', array(3, $USER->id));
 if(is_object($sql_grp1)) {
 	$sql = $DB->get_record_sql('SELECT filename FROM {groups_logo} WHERE dept_name = ?', array($sql_grp1->data));
 	if(is_object($sql)) {
@@ -41,7 +41,7 @@ else
 	if(is_object($sql2))	{
 		$banner_change = $sql2->filename;
 	}	
-}					   
+}*/					   
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>

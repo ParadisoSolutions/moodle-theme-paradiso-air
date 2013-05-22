@@ -23,7 +23,7 @@ if ($showsidepre && !$showsidepost) {
 if ($hascustommenu) {
     $bodyclasses[] = 'has_custom_menu';
 }
-$sql_grp1 = $DB->get_record_sql('SELECT data FROM {user_info_data} WHERE fieldid = ? AND userid = ?', array(3, $USER->id));
+/*$sql_grp1 = $DB->get_record_sql('SELECT data FROM {user_info_data} WHERE fieldid = ? AND userid = ?', array(3, $USER->id));
 if(is_object($sql_grp1)) {
 	$sql = $DB->get_record_sql('SELECT filename FROM {groups_logo} WHERE dept_name = ?', array($sql_grp1->data));
 	if(is_object($sql)) {
@@ -36,7 +36,7 @@ else
 	if(is_object($sql2))	{
 		$banner_change = $sql2->filename;
 	}	
-}
+}*/
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
@@ -61,7 +61,7 @@ echo $OUTPUT->doctype() ?>
 	<h1 class="headermain"><?php //echo $PAGE->heading ?></h1>
     <?php
 	// TODO: Use Moodle Data API to handle this query (we can't use php mysql functions to interact with DB). HC 2013-04-23.
-        $gcon = mysql_connect($CFG->dbhost,$CFG->dbuser,$CFG->dbpass);
+        /*$gcon = mysql_connect($CFG->dbhost,$CFG->dbuser,$CFG->dbpass);
         mysql_select_db($CFG->dbname);        
         $sql_logo = "SELECT gm.*, gl.* FROM ".$CFG->prefix."groups_members gm, ".$CFG->prefix."groups_logo gl  WHERE gm.groupid = gl.group_id 
          and gm.userid = ".$USER->id;
@@ -69,13 +69,13 @@ echo $OUTPUT->doctype() ?>
         $no_logo  = mysql_num_rows($qry_logo);
         $rslt_logo = mysql_fetch_array($qry_logo);
         if($no_logo>0){
-        $logo_style = "style=\"background-image:url('". new moodle_url('/groupimage/logo/').$rslt_logo['filename']." ');\"";
-        }else {$logo_style="";}
+        //$logo_style = "style=\"background-image:url('". new moodle_url('/groupimage/logo/').$rslt_logo['filename']." ');\"";
+        }else {$logo_style="";}*/
     ?>
     
 	<center><div class="banner" <?php if($banner_change){ ?>style="margin-top: 25px;
 text-align: center;
-background-image: url(<?php echo $CFG->wwwroot.'/groupimage/logo/'.$banner_change;?>);
+/*background-image: url(<?php //echo $CFG->wwwroot.'/groupimage/logo/'.$banner_change;?>);*/
 height: 107px;
 width: 800px;"
 <?php } ?></div></center>
